@@ -1,0 +1,18 @@
+<%- include('partials/header', { title: 'Forum' }) %>
+<section>
+  <h1>Forum (Q&A)</h1>
+  <% if (user) { %>
+    <a class="btn" href="/questions/new">Ask a Question</a>
+  <% } else { %>
+    <p><a href="/login">Log in</a> to ask or answer questions.</p>
+  <% } %>
+  <ul class="questions">
+    <% questions.forEach(q => { %>
+      <li>
+        <a href="/questions/<%= q.id %>"><%= q.title %></a>
+        <div class="meta"><%= q.subject %> • <%= q.author %> • <%= q.created_at %> • <%= q.answers %> answers • <%= q.votes %> votes</div>
+      </li>
+    <% }) %>
+  </ul>
+</section>
+<%- include('partials/footer') %>

@@ -1,0 +1,19 @@
+<%- include('partials/header', { title: 'Community' }) %>
+<section>
+  <h1>Community Corner</h1>
+  <% if (user) { %>
+    <form action="/community" method="post">
+      <textarea name="body" rows="3" placeholder="Share study tips or motivation..."></textarea>
+      <button class="btn">Post</button>
+    </form>
+  <% } else { %>
+    <p><a href="/login">Log in</a> to post.</p>
+  <% } %>
+
+  <ul>
+    <% posts.forEach(p => { %>
+      <li><strong><%= p.author %></strong>: <%= p.body %> <em>(<%= p.created_at %>)</em></li>
+    <% }) %>
+  </ul>
+</section>
+<%- include('partials/footer') %>

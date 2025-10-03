@@ -1,0 +1,5 @@
+# Put one word/phrase per line. Admin can edit this file to update banned words.
+# Example placeholders (please edit to actual words you want to block):
+bastos1
+bastos2
+malbastos

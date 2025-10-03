@@ -1,0 +1,35 @@
+:root{--bg:#f3f6fb;--card:#fff;--accent:#3498db;--muted:#666}
+*{box-sizing:border-box}
+body{font-family:Inter, Arial, sans-serif;background:var(--bg);margin:0;color:#222;-webkit-font-smoothing:antialiased}
+.topnav{background:#2c3e50;color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.topnav .brand{font-weight:700}
+.topnav nav a{color:#fff;margin-left:12px;text-decoration:none}
+.container{padding:16px;max-width:1000px;margin:0 auto}
+.hero{background:var(--card);padding:16px;border-radius:8px;margin-bottom:12px}
+.btn{background:var(--accent);color:#fff;padding:8px 12px;border:none;border-radius:6px;cursor:pointer}
+.link-btn{background:none;color:#fff;border:none;cursor:pointer}
+.categories{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.cat{background:var(--card);padding:10px 14px;border-radius:6px;border:1px solid #ddd;text-decoration:none;color:#333}
+.questions li{background:var(--card);padding:12px;margin-bottom:8px;border-radius:6px}
+.flash{padding:10px;margin-bottom:10px;border-radius:6px}
+.flash.success{background:#e6f7ea;color:#1f7a3a}
+.flash.error{background:#fdecea;color:#842029}
+.footer{text-align:center;padding:12px;margin-top:20px;color:var(--muted)}
+
+/* Responsive tweaks */
+@media (max-width:600px){
+  .topnav{padding:10px}
+  .topnav nav a{display:inline-block;margin:6px 6px}
+  .container{padding:12px}
+  .hero h1{font-size:18px}
+  .categories{gap:6px}
+  .questions li{padding:10px}
+}
+
+/* Simple accessibility */
+a{word-break:break-word}
+label{display:block;margin-bottom:8px}
+input,textarea,select{width:100%;padding:8px;margin-top:6px;border:1px solid #ddd;border-radius:6px}
+
+/* Small improvements for touch targets */
+button, .btn { touch-action: manipulation; }

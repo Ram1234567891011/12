@@ -1,0 +1,53 @@
+<%- include('partials/header', { title: 'Admin' }) %>
+<section>
+  <h1>Admin Panel</h1>
+  <h2>Users</h2>
+  <ul>
+    <% users.forEach(user => { %>
+      <li>
+        <%= user.name %> — <%= user.email %> — <%= user.points %> pts — 
+        Offenses: <%= user.offense_count || 0 %> — 
+        Banned until: <%= user.ban_until || '—' %>
+
+        <% if (!user.is_admin) { %>
+          <form style="display:inline" action="/admin/users/<%= user.id %>/promote" method="post">
+            <button>Promote</button>
+          </form>
+        <% } else { %>
+          <form style="display:inline" action="/admin/users/<%= user.id %>/demote" method="post">
+            <button>Demote</button>
+          </form>
+        <% } %>
+
+        <!-- ✅ Delete button -->
+        <form action="/admin/users/<%= user.id %>/delete?_method=POST" method="POST" style="display:inline;">
+          <button type="submit" onclick="return confirm('Delete this user?')">Delete</button>
+        </form>
+
+        <!-- ✅ Ban button (default 60 minutes) -->
+        <form style="display:inline" action="/admin/users/<%= user.id %>/ban" method="post">
+          <input type="hidden" name="duration" value="60" />
+          <button type="submit" onclick="return confirm('Ban this user for 60 minutes?')">Ban</button>
+        </form>
+
+        <!-- ✅ Unban button -->
+        <form style="display:inline" action="/admin/users/<%= user.id %>/unban" method="post">
+          <button type="submit" onclick="return confirm('Unban this user?')">Unban</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+
+  <h2>Resources</h2>
+  <ul>
+    <% resources.forEach(r => { %>
+      <li>
+        <%= r.title %> —
+        <form style="display:inline" action="/admin/resources/<%= r.id %>/delete" method="post">
+          <button>Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</section>
+<%- include('partials/footer') %>

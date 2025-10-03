@@ -1,0 +1,43 @@
+{
+  "name": "student-forum-community",
+  "version": "1.0.0",
+  "description": "Student Forum & Community for JHS & SHS - ready to host (with email verification & profanity filter)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "init-db": "node db/initialize.js"
+  },
+  "keywords": [
+    "student",
+    "forum",
+    "community"
+  ],
+  "author": "RAMRAM",
+  "license": "ISC",
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.4.1",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "fs": "^0.0.1-security",
+    "method-override": "^3.0.0",
+    "multer": "^2.0.2",
+    "node": "^24.9.0",
+    "nodemailer": "^7.0.6",
+    "path": "^0.12.7",
+    "path-to-regexp": "^0.1.7",
+    "sanitize-html": "^2.17.0"
+  },
+  "devDependencies": {
+    "install": "^0.13.0",
+    "nodemon": "^3.1.10",
+    "npm": "^11.6.1"
+  }
+}

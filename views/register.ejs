@@ -1,0 +1,13 @@
+<%- include('partials/header', { title: 'Register' }) %>
+<section>
+  <h1>Register</h1>
+  <form action="/register" method="post">
+    <label>Name<input name="name" required></label>
+    <label>Email<input name="email" type="email" required></label>
+    <label>Password<input name="password" type="password" required></label>
+    <label>Strand<input name="strand" placeholder="STEM / ABM / HUMSS / TVL / GAS"></label>
+    <label>Year Level<input name="year_level" placeholder="Grade 10 / Grade 11 / Grade 12"></label>
+    <button class="btn">Register</button>
+  </form>
+</section>
+<%- include('partials/footer') %>

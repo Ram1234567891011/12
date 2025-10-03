@@ -1,0 +1,20 @@
+<%- include('partials/header', { title: 'Resources' }) %>
+<section>
+  <h1>Resources</h1>
+  <% if (user) { %>
+    <form action="/resources/upload" method="post" enctype="multipart/form-data">
+      <label>Title<input name="title"></label>
+      <label>File<input type="file" name="file" required></label>
+      <button class="btn">Upload</button>
+    </form>
+  <% } else { %>
+    <p><a href="/login">Log in</a> to upload resources.</p>
+  <% } %>
+
+  <ul>
+    <% files.forEach(f => { %>
+      <li><a href="/uploads/<%= f.filename %>"><%= f.title %></a> — uploaded on <%= f.created_at %></li>
+    <% }) %>
+  </ul>
+</section>
+<%- include('partials/footer') %>

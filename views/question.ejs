@@ -1,0 +1,37 @@
+<%- include('partials/header', { title: q.title }) %>
+<section>
+  <h1><%= q.title %></h1>
+  <div class="meta"><%= q.subject %> • asked by <%= q.author %> • <%= q.created_at %></div>
+  <div class="body"><%= q.body %></div>
+  <form action="/questions/<%= q.id %>/vote" method="post" style="display:inline">
+    <input type="hidden" name="delta" value="1"><button>👍</button>
+  </form>
+  <form action="/questions/<%= q.id %>/vote" method="post" style="display:inline">
+    <input type="hidden" name="delta" value="-1"><button>👎</button>
+  </form>
+</section>
+
+<section>
+  <h2>Answers</h2>
+  <% if (answers.length === 0) { %><p>No answers yet — be the first!</p><% } %>
+  <% answers.forEach(a => { %>
+    <div class="answer">
+      <div class="meta">by <%= a.author %> • <%= a.created_at %> • <%= a.votes %> votes</div>
+      <div class="body"><%= a.body %></div>
+      <form action="/answers/<%= a.id %>/vote" method="post" style="display:inline"><input type="hidden" name="delta" value="1"><button>👍</button></form>
+      <form action="/answers/<%= a.id %>/vote" method="post" style="display:inline"><input type="hidden" name="delta" value="-1"><button>👎</button></form>
+    </div>
+  <% }) %>
+
+  <% if (user) { %>
+    <h3>Your Answer</h3>
+    <form action="/questions/<%= q.id %>/answers" method="post">
+      <textarea name="body" rows="5"></textarea>
+      <button class="btn">Post Answer</button>
+    </form>
+  <% } else { %>
+    <p><a href="/login">Log in</a> to post an answer.</p>
+  <% } %>
+</section>
+
+<%- include('partials/footer') %>

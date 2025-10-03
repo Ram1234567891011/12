@@ -1,0 +1,30 @@
+<%- include('partials/header', { title: 'Home' }) %>
+<section class="hero">
+  <h1>Welcome to Student Forum — Tulungan ang bawat isa!</h1>
+  <p>Para sa JHS at SHS students: Ask, Answer, Share Reviewers and Study Tips.</p>
+  <div class="search"><form action="/forum"><input name="q" placeholder="Search questions, topics, reviewers..."></form></div>
+</section>
+
+<section>
+  <h2>Featured Questions</h2>
+  <ul class="list">
+    <% featured.forEach(f => { %>
+      <li><a href="/questions/<%= f.id %>"><%= f.title %></a> — <em><%= f.subject %></em> • <%= f.votes %> votes • <%= f.answers %> answers</li>
+    <% }) %>
+  </ul>
+</section>
+
+<section>
+  <h2>Categories</h2>
+  <div class="categories">
+    <a class="cat" href="/forum?subject=Math">📐 Math</a>
+    <a class="cat" href="/forum?subject=Science">🔬 Science</a>
+    <a class="cat" href="/forum?subject=English">📖 English</a>
+    <a class="cat" href="/forum?subject=Filipino">🇵🇭 Filipino</a>
+    <a class="cat" href="/forum?subject=AP">🌍 Araling Panlipunan</a>
+    <a class="cat" href="/forum?subject=ICT">💻 ICT</a>
+    <a class="cat" href="/forum?subject=StudyTips">🎯 Study Tips</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

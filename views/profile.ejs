@@ -1,0 +1,20 @@
+<%- include('partials/header', { title: 'Profile' }) %>
+<section>
+  <h1><%= user.name %>'s Profile</h1>
+  <p>Strand: <%= user.strand %> • Year: <%= user.year_level %></p>
+  <p>Points: <%= user.points %></p>
+  <p>Offenses: <%= user.offense_count || 0 %> • Banned until: <%= user.ban_until || '—' %></p>
+  <h2>Your Questions</h2>
+  <ul>
+    <% questions.forEach(q => { %>
+      <li><a href="/questions/<%= q.id %>"><%= q.title %></a></li>
+    <% }) %>
+  </ul>
+  <h2>Your Answers</h2>
+  <ul>
+    <% answers.forEach(a => { %>
+      <li>On: <a href="/questions/<%= a.question_id %>"><%= a.title %></a> — <%= a.created_at %></li>
+    <% }) %>
+  </ul>
+</section>
+<%- include('partials/footer') %>

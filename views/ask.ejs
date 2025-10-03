@@ -1,0 +1,12 @@
+<%- include('partials/header', { title: 'Ask Question' }) %>
+<section>
+  <h1>Ask a Question</h1>
+  <form action="/questions" method="post">
+    <label>Title<input name="title" required></label>
+    <label>Body<textarea name="body" rows="6"></textarea></label>
+    <label>Subject<select name="subject"><option>Math</option><option>Science</option><option>English</option><option>Filipino</option><option>AP</option><option>ICT</option><option>StudyTips</option></select></label>
+    <label>Tags (comma separated)<input name="tags"></label>
+    <button class="btn">Post Question</button>
+  </form>
+</section>
+<%- include('partials/footer') %>

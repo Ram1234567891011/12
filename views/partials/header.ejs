@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= title || 'Student Forum' %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topnav">
+  <div class="brand">📘 Student Forum</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/forum">Forum</a>
+    <a href="/resources">Resources</a>
+    <a href="/community">Community</a>
+    <% if (user) { %>
+      <a href="/profile"><%= user.name %></a>
+      <% if (user.is_admin) { %><a href="/admin">Admin</a><% } %>
+      <form action="/logout" method="post" style="display:inline"><button class="link-btn">Logout</button></form>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    <% } %>
+  </nav>
+</header>
+<main class="container">
+  <% if (success && success.length) { %>
+    <div class="flash success"><%= success %></div>
+  <% } %>
+  <% if (error && error.length) { %>
+    <div class="flash error"><%= error %></div>
+  <% } %>
