@@ -285,6 +285,11 @@ app.get('/verify',(req,res)=>{
 });
 app.get('/login',(req,res)=>res.render('login'));
 
+// Rambo mailer
+
+
+
+
 // ✅ Updated login with ban check
 app.post('/login', async (req,res)=>{
   const {email,password}=req.body;
