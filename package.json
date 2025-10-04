@@ -17,7 +17,7 @@
   "author": "RAMRAM",
   "license": "ISC",
   "engines": {
-    "node": ">=24.9.0"
+    "node": ">=22.x"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -30,7 +30,7 @@
     "fs": "^0.0.1-security",
     "method-override": "^3.0.0",
     "multer": "^2.0.2",
-    "node": "^24.9.0",
+    "node": "^22.x",
     "nodemailer": "^7.0.6",
     "path": "^0.12.7",
     "path-to-regexp": "^0.1.7",
